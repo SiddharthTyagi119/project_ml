@@ -1,3 +1,4 @@
+#it will create log file and store each  everything under log file
 import os
 import logging
 from datetime import datetime
