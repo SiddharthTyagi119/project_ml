@@ -1,8 +1,11 @@
+#this .py file is used to download a genric project structure for a specif project.
+#to create a folder
 import os
-from pathlib import Path
+#to define a path for the creation of folder  
+from pathlib import Path   
 import logging
 
-
+#if project is available then it will recreate else it will create a new one  
 while True:
     project_name = input("Enter your project name: ")
     if project_name !='':
@@ -10,6 +13,8 @@ while True:
 
 logging.info(f"Creating project by name: {project_name}")
 
+#this list creates the folder and files which we want to create.
+#first it will ask project name and under that it will create dir and files
 list_of_files = [
     ".github/workflows/.gitkeep",
     ".github/workflows/main.yaml",
@@ -34,6 +39,7 @@ list_of_files = [
 for filepath in list_of_files:
     filepath = Path(filepath)
     filedir, filename = os.path.split(filepath)
+    #if dir is not available, then create the dir and put all the files and folder
     if filedir !="":
         os.makedirs(filedir, exist_ok=True)
         logging.info(f"Creating a new directory at : {filedir} for file: {filename}")
