@@ -1,0 +1,21 @@
+training_pipeline_config:
+  pipeline: US_VISA            #data on which we will work
+  artifact_dir: artifact       #to store the data prelated files/data files
+
+data_ingestion_config:
+  dataset_downoad_url: "url"   #to download data
+  raw_data_dir: raw_data       #data will store here first after download
+  ingested_dir: ingested_data
+  ingested_train_dir: train
+  ingested_test_dir: test
+
+#to validate the data-> data validation will check inside ingested data how many categorical and numerical 
+#data it have and store it under schema.yaml file. we can say it is a validation report.
+#first of all it will get the data from data ingestion and in data validation it will check whatever dtype we
+#have define at our end  is the same dtype data that we are getting, if yes then it will capture everything 
+#and store in schema.yaml file. 
+
+data_validation_config:
+  schema_dir: config
+  schema_file_dir: schema.yaml
+

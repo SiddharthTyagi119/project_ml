@@ -1,4 +1,9 @@
 create a repo and clone the repo
 create a tempelate file to downnload a genric str of a project
 create a setup file
-logger and exception file and then we will import these files in our main.
+logger and file and then we will import this files in our main.
+exception and file and then we will import this files in our main.
+second approach to get data and create its str- work on config.yaml and config entity file.
+
+
+
