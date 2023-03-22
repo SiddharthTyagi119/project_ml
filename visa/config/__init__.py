@@ -1,0 +1,1 @@
+#to join each and everything , all the folder to get store under artifacts
