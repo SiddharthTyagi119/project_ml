@@ -1,0 +1,17 @@
+[2023-03-26 17:55:06,418] root - INFO - Training pipleine config: TrainingPipelineConfig(artifact_dir='E:\\Data science\\Projects\\project_ml\\visa\\artifact')
+[2023-03-26 17:55:06,418] root - ERROR - 
+        Error occured in script: 
+        [ E:\Data science\Projects\project_ml\visa\pipeline\pipeline.py ] at 
+        try block line number: [44] and exception block line number: [47] 
+        error message: [
+        Error occured in script: 
+        [ E:\Data science\Projects\project_ml\visa\pipeline\pipeline.py ] at 
+        try block line number: [31] and exception block line number: [34] 
+        error message: [
+        Error occured in script: 
+        [ E:\Data science\Projects\project_ml\visa\config\configuration.py ] at 
+        try block line number: [40] and exception block line number: [77] 
+        error message: ['dataset_download_url']
+        ]
+        ]
+        

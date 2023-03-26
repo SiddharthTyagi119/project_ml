@@ -1,15 +1,43 @@
 ##define training pipeline and their parts where we need to create/store artifacts and data and from where we are getting data.
 #we are defining these key in config_entity because we can't call these directly into data ingestion file.
+
+
 training_pipeline_config:
-  pipeline_name: visa               #where you want to store the artifacts
-  artifact_dir: artifact       #to store the data prelated files/data files
+  pipeline_name: visa                     #where you want to store the artifacts
+  artifact_dir: artifact                  #to store the data prelated files/data files
 
 data_ingestion_config:
   dataset_downoad_url: https://raw.githubusercontent.com/SiddharthTyagi119/Datasets/main/Visadataset.csv  #to download data
-  raw_data_dir: raw_data       #data will store here first after download
-  ingested_dir: ingested_data  #inside this we will get train and test folder
+  raw_data_dir: raw_data                  #data will store here first after download
+  ingested_dir: ingested_data             #inside this we will get train and test folder
   ingested_train_dir: train
   ingested_test_dir: test
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #to validate the data-> data validation will check inside ingested data how many categorical and numerical 
 #data it have and store it under schema.yaml file. we can say it is a validation report.

@@ -62,13 +62,13 @@ class DataIngestion:
             #getting first file from raw dir
             file_name = os.listdir(raw_data_dir)[0]
             
-            #
+            
             us_visa_file_path = os.path.join(raw_data_dir, file_name)
 
             logging.info(f"Reading csv file: [{us_visa_file_path}]")
 
             # creating the date object of today's date
-            #whenever we get the file under raw data dir , it will store ulike below format
+            #whenever we get the file under raw data dir , it will store like below format
             todays_date = date.today()
             current_year= todays_date.year
             
