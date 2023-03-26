@@ -1,6 +1,6 @@
 #related with config_entity.
 #we are basically taking everything which we required as an input like reading file, calling and storing 
-#file path.
+#file path.just defining the variables to use them later.
 import sys
 from visa.constant import *
 from visa.logger import logging
@@ -73,6 +73,22 @@ class Configuartion:
             
             #returning the variables of this data_ingestion_config
             return data_ingestion_config
+        except Exception as e:
+            raise CustomException(e,sys) from e
+
+
+    def get_training_pipeline_config(self) ->TrainingPipelineConfig:
+        try:
+            #calling the things from constant init file
+            training_pipeline_config = self.config_info[TRAINING_PIPELINE_CONFIG_KEY]
+            artifact_dir = os.path.join(ROOT_DIR,
+            training_pipeline_config[TRAINING_PIPELINE_NAME_KEY],
+            training_pipeline_config[TRAINING_PIPELINE_ARTIFACT_DIR_KEY]
+            )
+
+            training_pipeline_config = TrainingPipelineConfig(artifact_dir=artifact_dir)
+            logging.info(f"Training pipleine config: {training_pipeline_config}")
+            return training_pipeline_config
         except Exception as e:
             raise CustomException(e,sys) from e
         

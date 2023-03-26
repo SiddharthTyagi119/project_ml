@@ -7,10 +7,8 @@ e-exception and file and then we will import this files in our main.
 
 ### 2nd phase 
 second approach-
-f-create config.yaml file first and define everything as key  in constant init file and as a key value pair in
-config_entity file.  
-config.yaml->>config_entity->>constant.init->>configuration.py
-
+f-[config.yaml->>config_entity->>constant.init->>configuration.py]
+[data_ingestion.py along with artifact_entity->>utils->>pipeline.py>>demo1]
 
 
 
