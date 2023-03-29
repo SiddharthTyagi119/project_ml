@@ -16,6 +16,7 @@ def write_yaml_file(file_path:str,data:dict=None):
     """
     try:
         os.makedirs(os.path.dirname(file_path), exist_ok=True)
+        #open the file path to dump the data
         with open(file_path,"w") as yaml_file:
             if data is not None:
                 #dumping the data into yaml file

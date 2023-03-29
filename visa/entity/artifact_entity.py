@@ -1,4 +1,4 @@
-#define whatever things we want to store 
+#define whatever things we want to store under artifact dir
 from collections import namedtuple
 
 DataIngestionArtifact = namedtuple("DataIngestionArtifact",

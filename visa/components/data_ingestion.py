@@ -17,7 +17,8 @@ from datetime import date
 
 
 class DataIngestion:
-#defining all the variables as data_ingestion_config, we already make these variables
+#defining all the variables as data_ingestion_config, under config file we have all the var
+#  we already make these variables in configuration.py
     def __init__(self, data_ingestion_config: DataIngestionConfig):
         try:
             logging.info(f"{'>>'*30}Data Ingestion log started.{'<<'*30} \n\n")
@@ -29,6 +30,7 @@ class DataIngestion:
 #define a function to download a data
     def download_data(self) -> str:
         try:
+            #download the data
             download_url = self.data_ingestion_config.dataset_download_url
             
             #directory to store raw data
@@ -59,52 +61,62 @@ class DataIngestion:
             #getting raw data
             raw_data_dir = self.data_ingestion_config.raw_data_dir
             
-            #getting first file from raw dir
+            #getting first file from raw dir after listing all the directory
             file_name = os.listdir(raw_data_dir)[0]
             
-            
+            #path of the raw data file
             us_visa_file_path = os.path.join(raw_data_dir, file_name)
 
             logging.info(f"Reading csv file: [{us_visa_file_path}]")
 
             # creating the date object of today's date
-            #whenever we get the file under raw data dir , it will store like below format
+            #whenever we get the file under raw data dir , it will store like below format, in date year format
+            #we will get a folder name in below format
             todays_date = date.today()
             current_year= todays_date.year
             
+            #reading the raw data csv file
             us_visa_dataframe = pd.read_csv(us_visa_file_path)
             
+            #making a new column
             us_visa_dataframe[COLUMN_COMPANY_AGE] = current_year-us_visa_dataframe[COLUMN_YEAR_ESTB]
             
             #drop some columns
             us_visa_dataframe.drop([COLUMN_ID,COLUMN_YEAR_ESTB], axis=1, inplace=True)
             us_visa_dataframe[COLUMN_CASE_STATUS] = np.where(us_visa_dataframe[COLUMN_CASE_STATUS] == 'Denied', 1,0)
-                        
+
+
+            #splitting the data          
             logging.info(f"Splitting data into train and test")
 
             train_set = None
             test_set = None
 
             train_set, test_set = train_test_split(us_visa_dataframe, test_size=0.2, random_state=42)
-
+            
+            #train file path
             train_file_path = os.path.join(self.data_ingestion_config.ingested_train_dir,
                                            file_name)
-
+            #test file path
             test_file_path = os.path.join(self.data_ingestion_config.ingested_test_dir,
                                           file_name)
 # ***********************************************************************************************
-           #if train and test is not null then create a dir just to store the data under train and test file
-           #path
+           #if train and test is not none then create a dir just to store the data under train and test file
+           #in csv
             if train_set is not None:
+                #creating train dir if not created to export the train data in csv in it
                 os.makedirs(self.data_ingestion_config.ingested_train_dir, exist_ok=True)
                 logging.info(f"Exporting training dataset to file: [{train_file_path}]")
                 train_set.to_csv(train_file_path, index=False)
 
             if test_set is not None:
+                #creating test dir if not created to export the train data in csv in it
                 os.makedirs(self.data_ingestion_config.ingested_test_dir, exist_ok=True)
                 logging.info(f"Exporting test dataset to file: [{test_file_path}]")
                 test_set.to_csv(test_file_path, index=False)
 
+
+            #make artifacts
             data_ingestion_artifact = DataIngestionArtifact(train_file_path=train_file_path,
                                                             test_file_path=test_file_path,
                                                             is_ingested=True,

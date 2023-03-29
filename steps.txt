@@ -1,14 +1,17 @@
-### 1st phase
+1st phase
 a-create a repo and clone the repo
 b-create a tempelate file to downnload a genric str of a project
 c-create a setup file
 d-logger and file and then we will import this files in our main.
 e-exception and file and then we will import this files in our main.
 
-### 2nd phase 
+2nd phase 
+Data Ingestion completed
 second approach-
-f-[config.yaml->>config_entity->>constant.init->>configuration.py]
-[data_ingestion.py along with artifact_entity->>utils->>pipeline.py>>demo1]
+[config.yaml->>config_entity->>constant.init->>configuration.py]
+[data_ingestion.py along with artifact_entity.py->>utils.py->>pipeline.py>>demo1.py]
+
+3rd Phase
 
 
 

@@ -25,21 +25,23 @@ class Configuartion:
             raise CustomException(e,sys) from e
 
 
-#calling this from config_entity file to get all the variables
+#calling this from config_entity file to get all the variables to do work in that
     def get_data_ingestion_config(self) ->DataIngestionConfig:
         try:
             artifact_dir = self.training_pipeline_config.artifact_dir
+            #where we join our all folder
             data_ingestion_artifact_dir=os.path.join(
                 artifact_dir,
                 DATA_INGESTION_ARTIFACT_DIR,
                 self.time_stamp
             )
+            #calling from constant init, need to call all the variables that are under config key 
             data_ingestion_info = self.config_info[DATA_INGESTION_CONFIG_KEY]
 
-            #getting the data
+            #getting the data, now we have data
             dataset_download_url = data_ingestion_info[DATA_INGESTION_DOWNLOAD_URL_KEY]
 
-            #data will place here after once it download
+            #data will place here after once it download , this is raw data dir
             raw_data_dir = os.path.join(data_ingestion_artifact_dir,
             data_ingestion_info[DATA_INGESTION_RAW_DATA_DIR_KEY]
             )
