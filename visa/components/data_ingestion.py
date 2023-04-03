@@ -104,13 +104,13 @@ class DataIngestion:
            #if train and test is not none then create a dir just to store the data under train and test file
            #in csv
             if train_set is not None:
-                #creating train dir if not created to export the train data in csv in it
+                #creating train dir if not created to export the train csv data in it
                 os.makedirs(self.data_ingestion_config.ingested_train_dir, exist_ok=True)
                 logging.info(f"Exporting training dataset to file: [{train_file_path}]")
                 train_set.to_csv(train_file_path, index=False)
 
             if test_set is not None:
-                #creating test dir if not created to export the train data in csv in it
+                #creating test dir if not created to export the train data csv data in it
                 os.makedirs(self.data_ingestion_config.ingested_test_dir, exist_ok=True)
                 logging.info(f"Exporting test dataset to file: [{test_file_path}]")
                 test_set.to_csv(test_file_path, index=False)

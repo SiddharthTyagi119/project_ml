@@ -7,12 +7,13 @@ e-exception and file and then we will import this files in our main.
 
 2nd phase 
 Data Ingestion completed
-second approach-
 [config.yaml->>config_entity->>constant.init->>configuration.py]
 [data_ingestion.py along with artifact_entity.py->>utils.py->>pipeline.py>>demo1.py]
 
 3rd Phase
-
+Data Validation completed
+[schema.yaml>>config.yaml->>config_entity->>constant.init->>configuration.py>>raw_data_validation.py]
+[data_validation.py along with artifact_entity.py->>utils.py->>pipeline.py>>demo1.py]
 
 
 
