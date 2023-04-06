@@ -15,5 +15,21 @@ Data Validation completed
 [schema.yaml>>config.yaml->>config_entity->>constant.init->>configuration.py>>raw_data_validation.py]
 [data_validation.py along with artifact_entity.py->>utils.py->>pipeline.py>>demo1.py]
 
+4th Phase
+Data Transformation Completed
+[config.yaml->>config_entity->>constant.init->>configuration.py]
+[data_transformation.py along with artifact_entity.py->>utils.py->>pipeline.py>>demo1.py]
 
+5th Phase
+Model Training Completed
+[model.yaml>>config.yaml->>config_entity->>constant.init->>configuration.py>>model_factory]
+[model_trainer.py along with artifact_entity.py->>utils.py->>pipeline.py>>demo1.py]
 
+6th Phase
+Model evaluation 
+[config.yaml>>config_entity.py>>artifacts_entity.py>>constant.init>>configuration.py]
+[model_evaluation.py>>pipeline.py>>demo.py]
+
+7th Phase
+Model pusher
+[config.yaml>>config_entity.py>>artifacts_entity.py>>constant.init>>modelpusher.py>>pipeline.py>>demo.py]

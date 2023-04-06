@@ -1,0 +1,22 @@
+[2023-04-04 05:46:39,698] root - INFO - Training pipleine config: TrainingPipelineConfig(artifact_dir='E:\\Data science\\Projects\\project_ml\\visa\\artifact')
+[2023-04-04 05:46:39,698] root - INFO - Data Ingestion config: DataIngestionConfig(dataset_download_url='https://raw.githubusercontent.com/SiddharthTyagi119/Datasets/main/Visadataset.csv', raw_data_dir='E:\\Data science\\Projects\\project_ml\\visa\\artifact\\data_ingestion\\2023-04-04-05-46-36\\raw_data', ingested_train_dir='E:\\Data science\\Projects\\project_ml\\visa\\artifact\\data_ingestion\\2023-04-04-05-46-36\\ingested_data\\train', ingested_test_dir='E:\\Data science\\Projects\\project_ml\\visa\\artifact\\data_ingestion\\2023-04-04-05-46-36\\ingested_data\\test')
+[2023-04-04 05:46:39,698] root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Data Ingestion log started.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+
+
+[2023-04-04 05:46:39,699] root - INFO - Downloading file from :[https://raw.githubusercontent.com/SiddharthTyagi119/Datasets/main/Visadataset.csv] into :[E:\Data science\Projects\project_ml\visa\artifact\data_ingestion\2023-04-04-05-46-36\raw_data\Visadataset.csv]
+[2023-04-04 05:46:40,682] root - INFO - File :[E:\Data science\Projects\project_ml\visa\artifact\data_ingestion\2023-04-04-05-46-36\raw_data\Visadataset.csv] has been downloaded successfully.
+[2023-04-04 05:46:40,682] root - INFO - Reading csv file: [E:\Data science\Projects\project_ml\visa\artifact\data_ingestion\2023-04-04-05-46-36\raw_data\Visadataset.csv]
+[2023-04-04 05:46:40,752] numexpr.utils - INFO - NumExpr defaulting to 4 threads.
+[2023-04-04 05:46:40,763] root - INFO - Splitting data into train and test
+[2023-04-04 05:46:40,769] root - INFO - Exporting training dataset to file: [E:\Data science\Projects\project_ml\visa\artifact\data_ingestion\2023-04-04-05-46-36\ingested_data\train\Visadataset.csv]
+[2023-04-04 05:46:40,899] root - INFO - Exporting test dataset to file: [E:\Data science\Projects\project_ml\visa\artifact\data_ingestion\2023-04-04-05-46-36\ingested_data\test\Visadataset.csv]
+[2023-04-04 05:46:40,934] root - INFO - Data Ingestion artifact:[DataIngestionArtifact(train_file_path='E:\\Data science\\Projects\\project_ml\\visa\\artifact\\data_ingestion\\2023-04-04-05-46-36\\ingested_data\\train\\Visadataset.csv', test_file_path='E:\\Data science\\Projects\\project_ml\\visa\\artifact\\data_ingestion\\2023-04-04-05-46-36\\ingested_data\\test\\Visadataset.csv', is_ingested=True, message='Data ingestion completed successfully.')]
+[2023-04-04 05:46:40,935] root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Data Validation log started.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+
+
+[2023-04-04 05:46:40,943] root - INFO - Validation Process Started
+[2023-04-04 05:46:41,186] root - INFO - Train_set status|is Train filename validated?: True|is train columns validated?: True|is train column name validated?: True|whole missing columns?True
+[2023-04-04 05:46:41,186] root - INFO - Test_set status|is Test filename validated?: Trueis test col numbers validated?: True|is test column names validated? True| whole missing columns? True
+[2023-04-04 05:46:41,186] root - INFO - Validation Process Completed
+[2023-04-04 05:46:41,186] root - INFO - Data validation artifact: DataValidationArtifact(schema_file_path='E:\\Data science\\Projects\\project_ml\\config\\schema.yaml', is_validated=True, message='Data validation performed')
+[2023-04-04 05:46:41,186] root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Data Validation log completed.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<

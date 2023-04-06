@@ -12,3 +12,18 @@ DataValidationArtifact = namedtuple("DataValidationArtifact",
 DataTransformationArtifact = namedtuple("DataTransformationArtifact",
  ["is_transformed", "message", "transformed_train_file_path","transformed_test_file_path",
      "preprocessed_object_file_path"])
+
+ModelTrainerArtifact = namedtuple("ModelTrainerArtifact", ["is_trained", "message", "trained_model_file_path",
+                                                           "train_f1", "test_f1", "train_accuracy", "test_accuracy",
+                                                           "model_accuracy"])
+
+ModelEvaluationArtifact = namedtuple("ModelEvaluationArtifact", ["is_model_accepted", "evaluated_model_path"])
+
+ModelPusherArtifact = namedtuple("ModelPusherArtifact", ["is_model_pusher", "export_model_file_path"])
+
+
+'''in model evaluation, if a model got higher accuracy than our base accuracy, then we will chosse that model and
+     and saved inside model_evaluation.yaml
+   in model pusher if we again train our model with diff params then only higher model accuracy will save
+     
+     '''

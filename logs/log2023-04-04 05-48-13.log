@@ -1,0 +1,50 @@
+[2023-04-04 05:48:15,651] root - INFO - Training pipleine config: TrainingPipelineConfig(artifact_dir='E:\\Data science\\Projects\\project_ml\\visa\\artifact')
+[2023-04-04 05:48:15,651] root - INFO - Data Ingestion config: DataIngestionConfig(dataset_download_url='https://raw.githubusercontent.com/SiddharthTyagi119/Datasets/main/Visadataset.csv', raw_data_dir='E:\\Data science\\Projects\\project_ml\\visa\\artifact\\data_ingestion\\2023-04-04-05-48-13\\raw_data', ingested_train_dir='E:\\Data science\\Projects\\project_ml\\visa\\artifact\\data_ingestion\\2023-04-04-05-48-13\\ingested_data\\train', ingested_test_dir='E:\\Data science\\Projects\\project_ml\\visa\\artifact\\data_ingestion\\2023-04-04-05-48-13\\ingested_data\\test')
+[2023-04-04 05:48:15,652] root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Data Ingestion log started.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+
+
+[2023-04-04 05:48:15,653] root - INFO - Downloading file from :[https://raw.githubusercontent.com/SiddharthTyagi119/Datasets/main/Visadataset.csv] into :[E:\Data science\Projects\project_ml\visa\artifact\data_ingestion\2023-04-04-05-48-13\raw_data\Visadataset.csv]
+[2023-04-04 05:48:16,075] root - INFO - File :[E:\Data science\Projects\project_ml\visa\artifact\data_ingestion\2023-04-04-05-48-13\raw_data\Visadataset.csv] has been downloaded successfully.
+[2023-04-04 05:48:16,075] root - INFO - Reading csv file: [E:\Data science\Projects\project_ml\visa\artifact\data_ingestion\2023-04-04-05-48-13\raw_data\Visadataset.csv]
+[2023-04-04 05:48:16,138] numexpr.utils - INFO - NumExpr defaulting to 4 threads.
+[2023-04-04 05:48:16,149] root - INFO - Splitting data into train and test
+[2023-04-04 05:48:16,154] root - INFO - Exporting training dataset to file: [E:\Data science\Projects\project_ml\visa\artifact\data_ingestion\2023-04-04-05-48-13\ingested_data\train\Visadataset.csv]
+[2023-04-04 05:48:16,348] root - INFO - Exporting test dataset to file: [E:\Data science\Projects\project_ml\visa\artifact\data_ingestion\2023-04-04-05-48-13\ingested_data\test\Visadataset.csv]
+[2023-04-04 05:48:16,383] root - INFO - Data Ingestion artifact:[DataIngestionArtifact(train_file_path='E:\\Data science\\Projects\\project_ml\\visa\\artifact\\data_ingestion\\2023-04-04-05-48-13\\ingested_data\\train\\Visadataset.csv', test_file_path='E:\\Data science\\Projects\\project_ml\\visa\\artifact\\data_ingestion\\2023-04-04-05-48-13\\ingested_data\\test\\Visadataset.csv', is_ingested=True, message='Data ingestion completed successfully.')]
+[2023-04-04 05:48:16,384] root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Data Validation log started.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+
+
+[2023-04-04 05:48:16,391] root - INFO - Validation Process Started
+[2023-04-04 05:48:16,593] root - INFO - Train_set status|is Train filename validated?: True|is train columns validated?: True|is train column name validated?: True|whole missing columns?True
+[2023-04-04 05:48:16,593] root - INFO - Test_set status|is Test filename validated?: Trueis test col numbers validated?: True|is test column names validated? True| whole missing columns? True
+[2023-04-04 05:48:16,593] root - INFO - Validation Process Completed
+[2023-04-04 05:48:16,593] root - INFO - Data validation artifact: DataValidationArtifact(schema_file_path='E:\\Data science\\Projects\\project_ml\\config\\schema.yaml', is_validated=True, message='Data validation performed')
+[2023-04-04 05:48:16,593] root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Data Validation log completed.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2023-04-04 05:48:16,593] root - INFO - Data transformation config: DataTransformationConfig(transformed_train_dir='E:\\Data science\\Projects\\project_ml\\visa\\artifact\\data_transformation\\2023-04-04-05-48-13\\transformed_data\\train', transformed_test_dir='E:\\Data science\\Projects\\project_ml\\visa\\artifact\\data_transformation\\2023-04-04-05-48-13\\transformed_data\\test', preprocessed_object_file_path='E:\\Data science\\Projects\\project_ml\\visa\\artifact\\data_transformation\\2023-04-04-05-48-13\\preprocessed\\preprocessed.pkl')
+[2023-04-04 05:48:16,593] root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Data Transformation log started.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2023-04-04 05:48:16,593] root - INFO - Obtaining preprocessing object.
+[2023-04-04 05:48:16,597] root - INFO - Obtaining training and test file path.
+[2023-04-04 05:48:16,598] root - INFO - Loading training and test data as pandas dataframe.
+[2023-04-04 05:48:16,671] root - INFO - Outlier capped in train df
+[2023-04-04 05:48:16,676] root - INFO - Outlier capped in test df
+[2023-04-04 05:48:16,677] root - INFO - Splitting input and target feature from training and testing dataframe.
+[2023-04-04 05:48:16,701] root - INFO - Applying preprocessing object on training dataframe and testing dataframe.
+[2023-04-04 05:48:17,059] root - ERROR - 
+        Error occured in script: 
+        [ E:\Data science\Projects\project_ml\visa\pipeline\pipeline.py ] at 
+        try block line number: [70] and exception block line number: [73] 
+        error message: [
+        Error occured in script: 
+        [ E:\Data science\Projects\project_ml\visa\pipeline\pipeline.py ] at 
+        try block line number: [59] and exception block line number: [61] 
+        error message: [
+        Error occured in script: 
+        [ E:\Data science\Projects\project_ml\visa\components\data_transformation.py ] at 
+        try block line number: [144] and exception block line number: [189] 
+        error message: ['NoneType' object has no attribute 'split']
+        ]
+        ]
+        
+[2023-04-04 05:48:17,064] root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Data Transformation log completed.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+
+

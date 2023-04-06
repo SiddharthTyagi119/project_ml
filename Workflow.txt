@@ -1,0 +1,4 @@
+Ingest the data and then validate the train and test data with the schema file. 
+transform the data and  train the model.
+Pick the best model from all the trained models in  model evaluation file yaml file to push the model in saved 
+model directory during model pusher.
