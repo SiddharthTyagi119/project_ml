@@ -1,3 +1,5 @@
+#Pick the best model from all the trained models in  model evaluation  and later we will push the model in saved 
+#model directory during model pusher.
 from visa.logger import logging
 import sys
 import numpy as np
@@ -10,7 +12,7 @@ from visa.entity.model_factory import evaluate_classification_model
 
 
 # Get the best model from our model trainer 
-# Updated our model everytime
+# Updated our model everytime, if we update the parameters
 # Inititate our  model
 
 class ModelEvaluation:
@@ -34,7 +36,7 @@ class ModelEvaluation:
             #calling model evaluation file path
             model_evaluation_file_path = self.model_evaluation_config.model_evaluation_file_path
 
-            #if not present then create evaluation yaml file under model evaluation file path
+            #if not present then create evaluation.yaml file under model evaluation file path
             #writing the best model path in the yaml file as per accuracy
             if not os.path.exists(model_evaluation_file_path):
                 write_yaml_file(file_path=model_evaluation_file_path,

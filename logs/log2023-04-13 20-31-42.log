@@ -1,0 +1,121 @@
+[2023-04-13 20:31:45,350] root - INFO - Training pipleine config: TrainingPipelineConfig(artifact_dir='E:\\Data science\\Projects\\VisaProject\\visa\\artifact')
+[2023-04-13 20:31:45,350] root - INFO - Data Ingestion config: DataIngestionConfig(dataset_download_url='https://raw.githubusercontent.com/SiddharthTyagi119/Datasets/main/Visadataset.csv', raw_data_dir='E:\\Data science\\Projects\\VisaProject\\visa\\artifact\\data_ingestion\\2023-04-13-20-31-42\\raw_data', ingested_train_dir='E:\\Data science\\Projects\\VisaProject\\visa\\artifact\\data_ingestion\\2023-04-13-20-31-42\\ingested_data\\train', ingested_test_dir='E:\\Data science\\Projects\\VisaProject\\visa\\artifact\\data_ingestion\\2023-04-13-20-31-42\\ingested_data\\test')
+[2023-04-13 20:31:45,351] root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Data Ingestion log started.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+
+
+[2023-04-13 20:31:45,351] root - INFO - Downloading file from :[https://raw.githubusercontent.com/SiddharthTyagi119/Datasets/main/Visadataset.csv] into :[E:\Data science\Projects\VisaProject\visa\artifact\data_ingestion\2023-04-13-20-31-42\raw_data\Visadataset.csv]
+[2023-04-13 20:31:45,792] root - INFO - File :[E:\Data science\Projects\VisaProject\visa\artifact\data_ingestion\2023-04-13-20-31-42\raw_data\Visadataset.csv] has been downloaded successfully.
+[2023-04-13 20:31:45,793] root - INFO - Reading csv file: [E:\Data science\Projects\VisaProject\visa\artifact\data_ingestion\2023-04-13-20-31-42\raw_data\Visadataset.csv]
+[2023-04-13 20:31:45,872] numexpr.utils - INFO - NumExpr defaulting to 4 threads.
+[2023-04-13 20:31:45,885] root - INFO - Splitting data into train and test
+[2023-04-13 20:31:45,890] root - INFO - Exporting training dataset to file: [E:\Data science\Projects\VisaProject\visa\artifact\data_ingestion\2023-04-13-20-31-42\ingested_data\train\Visadataset.csv]
+[2023-04-13 20:31:46,041] root - INFO - Exporting test dataset to file: [E:\Data science\Projects\VisaProject\visa\artifact\data_ingestion\2023-04-13-20-31-42\ingested_data\test\Visadataset.csv]
+[2023-04-13 20:31:46,081] root - INFO - Data Ingestion artifact:[DataIngestionArtifact(train_file_path='E:\\Data science\\Projects\\VisaProject\\visa\\artifact\\data_ingestion\\2023-04-13-20-31-42\\ingested_data\\train\\Visadataset.csv', test_file_path='E:\\Data science\\Projects\\VisaProject\\visa\\artifact\\data_ingestion\\2023-04-13-20-31-42\\ingested_data\\test\\Visadataset.csv', is_ingested=True, message='Data ingestion completed successfully.')]
+[2023-04-13 20:31:46,083] root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Data Validation log started.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+
+
+[2023-04-13 20:31:46,093] root - INFO - Validation Process Started
+[2023-04-13 20:31:46,335] root - INFO - Train_set status|is Train filename validated?: True|is train columns validated?: True|is train column name validated?: True|whole missing columns?True
+[2023-04-13 20:31:46,335] root - INFO - Test_set status|is Test filename validated?: Trueis test col numbers validated?: True|is test column names validated? True| whole missing columns? True
+[2023-04-13 20:31:46,335] root - INFO - Validation Process Completed
+[2023-04-13 20:31:46,336] root - INFO - Data validation artifact: DataValidationArtifact(schema_file_path='E:\\Data science\\Projects\\VisaProject\\config\\schema.yaml', is_validated=True, message='Data validation performed')
+[2023-04-13 20:31:46,336] root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Data Validation log completed.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2023-04-13 20:31:46,336] root - INFO - Data transformation config: DataTransformationConfig(transformed_train_dir='E:\\Data science\\Projects\\VisaProject\\visa\\artifact\\data_transformation\\2023-04-13-20-31-42\\transformed_data\\train', transformed_test_dir='E:\\Data science\\Projects\\VisaProject\\visa\\artifact\\data_transformation\\2023-04-13-20-31-42\\transformed_data\\test', preprocessed_object_file_path='E:\\Data science\\Projects\\VisaProject\\visa\\artifact\\data_transformation\\2023-04-13-20-31-42\\preprocessed\\preprocessed.pkl')
+[2023-04-13 20:31:46,336] root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Data Transformation log started.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2023-04-13 20:31:46,336] root - INFO - Obtaining preprocessing object.
+[2023-04-13 20:31:46,340] root - INFO - Obtaining training and test file path.
+[2023-04-13 20:31:46,340] root - INFO - Loading training and test data as pandas dataframe.
+[2023-04-13 20:31:46,431] root - INFO - Outlier capped in train df
+[2023-04-13 20:31:46,440] root - INFO - Outlier capped in test df
+[2023-04-13 20:31:46,440] root - INFO - Splitting input and target feature from training and testing dataframe.
+[2023-04-13 20:31:46,475] root - INFO - Applying preprocessing object on training dataframe and testing dataframe.
+[2023-04-13 20:31:49,813] root - INFO - Saving transformed training and test array.
+[2023-04-13 20:31:49,828] root - INFO - Saving preprocessing object.
+[2023-04-13 20:31:49,843] root - INFO - Data transformation artifact: DataTransformationArtifact(is_transformed=True, message='Data transformation successfull.', transformed_train_file_path='E:\\Data science\\Projects\\VisaProject\\visa\\artifact\\data_transformation\\2023-04-13-20-31-42\\transformed_data\\train\\Visadataset.npz', transformed_test_file_path='E:\\Data science\\Projects\\VisaProject\\visa\\artifact\\data_transformation\\2023-04-13-20-31-42\\transformed_data\\test\\Visadataset.npz', preprocessed_object_file_path='E:\\Data science\\Projects\\VisaProject\\visa\\artifact\\data_transformation\\2023-04-13-20-31-42\\preprocessed\\preprocessed.pkl')
+[2023-04-13 20:31:49,846] root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Data Transformation log completed.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+
+
+[2023-04-13 20:31:49,846] root - INFO - Model trainer config: ModelTrainerConfig(trained_model_file_path='E:\\Data science\\Projects\\VisaProject\\visa\\artifact\\model_trainer\\2023-04-13-20-31-42\\trained_model\\model.pkl', base_accuracy=0.6, model_config_file_path='config\\model.yaml')
+[2023-04-13 20:31:49,846] root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Model trainer log started.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+[2023-04-13 20:31:49,847] root - INFO - Loading transformed training dataset
+[2023-04-13 20:31:49,858] root - INFO - Loading transformed testing dataset
+[2023-04-13 20:31:49,933] root - INFO - Splitting training and testing input and target feature
+[2023-04-13 20:31:49,933] root - INFO - Extracting model config file path
+[2023-04-13 20:31:49,933] root - INFO - Initializing model factory class using above model config file: config\model.yaml
+[2023-04-13 20:31:49,942] root - INFO - Expected accuracy: 0.6
+[2023-04-13 20:31:49,942] root - INFO - Initiating operation model selection
+[2023-04-13 20:31:49,942] root - INFO - Started Initializing model from config file
+[2023-04-13 20:31:49,942] root - INFO - Executing command: from <module 'sklearn.ensemble' from 'C:\\Users\\sairam\\anaconda3\\lib\\site-packages\\sklearn\\ensemble\\__init__.py'> import RandomForestClassifier
+[2023-04-13 20:31:49,946] root - INFO - Executing:$ RandomForestClassifier().max_depth=0.1
+[2023-04-13 20:31:49,946] root - INFO - Executing:$ RandomForestClassifier(max_depth=0.1).max_features=5
+[2023-04-13 20:31:49,947] root - INFO - Executing:$ RandomForestClassifier(max_depth=0.1, max_features=5).min_samples_split=2
+[2023-04-13 20:31:49,948] root - INFO - Executing:$ RandomForestClassifier(max_depth=0.1, max_features=5).n_estimators=100
+[2023-04-13 20:31:49,948] root - INFO - Executing command: from <module 'sklearn.neighbors' from 'C:\\Users\\sairam\\anaconda3\\lib\\site-packages\\sklearn\\neighbors\\__init__.py'> import KNeighborsClassifier
+[2023-04-13 20:31:49,949] root - INFO - Executing:$ KNeighborsClassifier().n_neighbors=2
+[2023-04-13 20:31:49,950] root - INFO - Executing:$ KNeighborsClassifier(n_neighbors=2).weights=uniform
+[2023-04-13 20:31:49,950] root - INFO - Initialized model: [InitializedModelDetail(model_serial_number='module_0', model=RandomForestClassifier(max_depth=0.1, max_features=5), param_grid_search={'min_samples_split': [2, 8, 15], 'max_features': [5, 'sqrt', 'log2'], 'n_estimators': [100, 200, 1000], 'max_depth': [5, 8, 10]}, model_name='sklearn.ensemble.RandomForestClassifier'), InitializedModelDetail(model_serial_number='module_1', model=KNeighborsClassifier(n_neighbors=2), param_grid_search={'n_neighbors': [3, 5, 9, 11], 'weights': ['uniform', 'distance']}, model_name='sklearn.neighbors.KNeighborsClassifier')]
+[2023-04-13 20:31:49,951] root - INFO - Executing command: from <module 'sklearn.model_selection' from 'C:\\Users\\sairam\\anaconda3\\lib\\site-packages\\sklearn\\model_selection\\__init__.py'> import GridSearchCV
+[2023-04-13 20:31:49,955] root - INFO - Executing:$ GridSearchCV(estimator=RandomForestClassifier(max_depth=0.1, max_features=5),
+             param_grid={'max_depth': [5, 8, 10],
+                         'max_features': [5, 'sqrt', 'log2'],
+                         'min_samples_split': [2, 8, 15],
+                         'n_estimators': [100, 200, 1000]}).cv=2
+[2023-04-13 20:31:49,958] root - INFO - Executing:$ GridSearchCV(cv=2,
+             estimator=RandomForestClassifier(max_depth=0.1, max_features=5),
+             param_grid={'max_depth': [5, 8, 10],
+                         'max_features': [5, 'sqrt', 'log2'],
+                         'min_samples_split': [2, 8, 15],
+                         'n_estimators': [100, 200, 1000]}).verbose=2
+[2023-04-13 20:31:49,958] root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> f"Training RandomForestClassifier Started." <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2023-04-13 20:44:07,408] root - INFO - Executing command: from <module 'sklearn.model_selection' from 'C:\\Users\\sairam\\anaconda3\\lib\\site-packages\\sklearn\\model_selection\\__init__.py'> import GridSearchCV
+[2023-04-13 20:44:07,412] root - INFO - Executing:$ GridSearchCV(estimator=KNeighborsClassifier(n_neighbors=2),
+             param_grid={'n_neighbors': [3, 5, 9, 11],
+                         'weights': ['uniform', 'distance']}).cv=2
+[2023-04-13 20:44:07,415] root - INFO - Executing:$ GridSearchCV(cv=2, estimator=KNeighborsClassifier(n_neighbors=2),
+             param_grid={'n_neighbors': [3, 5, 9, 11],
+                         'weights': ['uniform', 'distance']}).verbose=2
+[2023-04-13 20:44:07,415] root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> f"Training KNeighborsClassifier Started." <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2023-04-13 20:44:13,673] root - INFO - Acceptable model found:GridSearchedBestModel(model_serial_number='module_0', model=RandomForestClassifier(max_depth=0.1, max_features=5), best_model=RandomForestClassifier(max_depth=10, max_features=5, n_estimators=1000), best_parameters={'max_depth': 10, 'max_features': 5, 'min_samples_split': 2, 'n_estimators': 1000}, best_score=0.9000440658049353)
+[2023-04-13 20:44:13,673] root - INFO - Acceptable model found:GridSearchedBestModel(model_serial_number='module_1', model=KNeighborsClassifier(n_neighbors=2), best_model=KNeighborsClassifier(n_neighbors=3, weights='distance'), best_parameters={'n_neighbors': 3, 'weights': 'distance'}, best_score=0.950352526439483)
+[2023-04-13 20:44:13,674] root - INFO - Best model: GridSearchedBestModel(model_serial_number='module_1', model=KNeighborsClassifier(n_neighbors=2), best_model=KNeighborsClassifier(n_neighbors=3, weights='distance'), best_parameters={'n_neighbors': 3, 'weights': 'distance'}, best_score=0.950352526439483)
+[2023-04-13 20:44:13,675] root - INFO - Best model found on training dataset: GridSearchedBestModel(model_serial_number='module_1', model=KNeighborsClassifier(n_neighbors=2), best_model=KNeighborsClassifier(n_neighbors=3, weights='distance'), best_parameters={'n_neighbors': 3, 'weights': 'distance'}, best_score=0.950352526439483)
+[2023-04-13 20:44:13,676] root - INFO - Extracting trained model list.
+[2023-04-13 20:44:13,676] root - INFO - Evaluation all trained model on training and testing dataset both
+[2023-04-13 20:44:13,677] root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Started evaluating model: [RandomForestClassifier] <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2023-04-13 20:44:16,241] root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Score <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2023-04-13 20:44:16,241] root - INFO - Train Score		 Test Score		 Average Score
+[2023-04-13 20:44:16,241] root - INFO - 0.9238396004700352		 0.8617081447963801		0.8916928828376781
+[2023-04-13 20:44:16,241] root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> F1 Score <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2023-04-13 20:44:16,241] root - INFO - Diff test train accuracy: [0.06213145567365508].
+[2023-04-13 20:44:16,241] root - INFO - Train root mean squared error: [0.9277100034855349].
+[2023-04-13 20:44:16,241] root - INFO - Test root mean squared error: [0.8686543110394843].
+[2023-04-13 20:44:16,241] root - INFO - Acceptable model found MetricInfoArtifact(model_name='RandomForestClassifier(max_depth=10, max_features=5, n_estimators=1000)', model_object=RandomForestClassifier(max_depth=10, max_features=5, n_estimators=1000), train_f1=0.9277100034855349, test_f1=0.8686543110394843, train_accuracy=0.9238396004700352, test_accuracy=0.8617081447963801, model_accuracy=0.8916928828376781, index_number=0). 
+[2023-04-13 20:44:16,242] root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Started evaluating model: [KNeighborsClassifier] <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2023-04-13 20:44:17,151] root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Score <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2023-04-13 20:44:17,151] root - INFO - Train Score		 Test Score		 Average Score
+[2023-04-13 20:44:17,151] root - INFO - 1.0		 0.8249434389140271		0.9040756237408957
+[2023-04-13 20:44:17,151] root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> F1 Score <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2023-04-13 20:44:17,151] root - INFO - Diff test train accuracy: [0.1750565610859729].
+[2023-04-13 20:44:17,151] root - INFO - Train root mean squared error: [1.0].
+[2023-04-13 20:44:17,152] root - INFO - Test root mean squared error: [0.8384233881493083].
+[2023-04-13 20:44:17,152] root - INFO - Best found model on both training and testing dataset.
+[2023-04-13 20:44:17,170] root - INFO - Saving model at path: E:\Data science\Projects\VisaProject\visa\artifact\model_trainer\2023-04-13-20-31-42\trained_model\model.pkl
+[2023-04-13 20:44:17,689] root - INFO - Model Trainer Artifact: ModelTrainerArtifact(is_trained=True, message='Model Trained successfully', trained_model_file_path='E:\\Data science\\Projects\\VisaProject\\visa\\artifact\\model_trainer\\2023-04-13-20-31-42\\trained_model\\model.pkl', train_f1=0.9277100034855349, test_f1=0.8686543110394843, train_accuracy=0.9238396004700352, test_accuracy=0.8617081447963801, model_accuracy=0.8916928828376781)
+[2023-04-13 20:44:17,695] root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Model trainer log completed.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+[2023-04-13 20:44:17,695] root - INFO - Model Evaluation Config: ModelEvaluationConfig(model_evaluation_file_path='E:\\Data science\\Projects\\VisaProject\\visa\\artifact\\model_evaluation\\model_evaluation.yaml', time_stamp='2023-04-13-20-31-42').
+[2023-04-13 20:44:17,695] root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Model Evaluation log started.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+[2023-04-13 20:44:17,942] root - INFO - Converting target column into numpy array.
+[2023-04-13 20:44:17,944] root - INFO - Conversion completed target column into numpy array.
+[2023-04-13 20:44:17,944] root - INFO - Dropping target column from the dataframe.
+[2023-04-13 20:44:17,949] root - INFO - Dropping target column from the dataframe completed.
+[2023-04-13 20:44:17,950] root - INFO - Not found any existing model. Hence accepting trained model
+[2023-04-13 20:44:17,950] root - INFO - Previous eval result: {}
+[2023-04-13 20:44:17,950] root - INFO - Updated eval result:{'best_model': {'model_path': 'E:\\Data science\\Projects\\VisaProject\\visa\\artifact\\model_trainer\\2023-04-13-20-31-42\\trained_model\\model.pkl'}}
+[2023-04-13 20:44:17,952] root - INFO - Model accepted. Model eval artifact ModelEvaluationArtifact(is_model_accepted=True, evaluated_model_path='E:\\Data science\\Projects\\VisaProject\\visa\\artifact\\model_trainer\\2023-04-13-20-31-42\\trained_model\\model.pkl') created
+[2023-04-13 20:44:17,974] root - INFO - ====================Model Evaluation log completed.==================== 
+[2023-04-13 20:44:17,974] root - INFO - Model pusher config ModelPusherConfig(export_dir_path='E:\\Data science\\Projects\\VisaProject\\saved_models\\20230413204417')
+[2023-04-13 20:44:17,974] root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Model Pusher log started.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+[2023-04-13 20:44:17,974] root - INFO - Exporting model file: [E:\Data science\Projects\VisaProject\saved_models\20230413204417\model.pkl]
+[2023-04-13 20:44:18,003] root - INFO - Trained model: E:\Data science\Projects\VisaProject\visa\artifact\model_trainer\2023-04-13-20-31-42\trained_model\model.pkl is copied in export dir:[E:\Data science\Projects\VisaProject\saved_models\20230413204417\model.pkl]
+[2023-04-13 20:44:18,003] root - INFO - Model Pusher artifact: [ModelPusherArtifact(is_model_pusher=True, export_model_file_path='E:\\Data science\\Projects\\VisaProject\\saved_models\\20230413204417\\model.pkl')
+[2023-04-13 20:44:18,003] root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Model Pusher log completed.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<

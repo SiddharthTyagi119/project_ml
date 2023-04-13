@@ -34,10 +34,10 @@ model_trainer_config:
   model_config_file_name: model.yaml
 
 model_evaluation_config:
-  model_evaluation_file_name: model_evaluation.yaml
+  model_evaluation_file_name: model_evaluation.yaml    #saving best model path pkl file
 
 model_pusher_config:
-  model_export_dir: saved_models
+  model_export_dir: saved_models    #to save the best model after evaluation
 
 
 

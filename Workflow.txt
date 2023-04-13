@@ -1,4 +1,6 @@
 Ingest the data and then validate the train and test data with the schema file. 
 transform the data and  train the model.
-Pick the best model from all the trained models in  model evaluation file yaml file to push the model in saved 
-model directory during model pusher.
+Pick the best model from all the trained models in  model evaluation  and later we will push the model in saved 
+model directory during model pusher. we only accept the model if we get high or same accuracy then the previou one.
+we are saving one pickle file whatever we have the highest accuracy
+model_evaluation.yaml file will be cretad with some trained model info.
