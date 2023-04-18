@@ -17,6 +17,7 @@ from visa.entity.model_factory import evaluate_classification_model
 # Saving custom model object
 #return model trainer artifact
 
+#taking preprocessing data and trained model object
 class VisaApprovalPredictor:
     def __init__(self, preprocessing_object, trained_model_object):
         """
@@ -27,6 +28,7 @@ class VisaApprovalPredictor:
         self.preprocessing_object = preprocessing_object
         self.trained_model_object = trained_model_object
 
+#part of feature columns
     def predict(self, X):
         """
         function accepts raw inputs and then transformed raw input using preprocessing_object
@@ -36,6 +38,7 @@ class VisaApprovalPredictor:
         transformed_feature = self.preprocessing_object.transform(X)
         return self.trained_model_object.predict(transformed_feature)
     
+#part of target column
     def predict_proba(self, X):
         """
         function accepts raw inputs and then transformed raw input using preprocessing_object
@@ -84,7 +87,9 @@ class ModelTrainer:
             logging.info(f"Extracting model config file path")
             model_config_file_path = self.model_trainer_config.model_config_file_path
     
-
+            #calling model factory to do model training, we called each key and value under model factory 
+            #whatever hings we have under model config we are calling under model factory to train the model
+            # calling the params that are defined under model factory 
             logging.info(f"Initializing model factory class using above model config file: {model_config_file_path}")
             model_factory = ModelFactory(model_config_path=model_config_file_path)
 
@@ -94,15 +99,17 @@ class ModelTrainer:
 
 # Start Debugging first
 
-            #getting best model
+            #getting best model based on accuracy
             logging.info(f"Initiating operation model selection")
             best_model = model_factory.get_best_model(X=x_train, y=y_train, base_accuracy=base_accuracy)
 
             logging.info(f"Best model found on training dataset: {best_model}")
 
+            #complete all trained algrorithms
             logging.info(f"Extracting trained model list.")
             grid_searched_best_model_list: List[GridSearchedBestModel] = model_factory.grid_searched_best_model_list
 
+            #evaluating the all trained models
             model_list = [model.best_model for model in grid_searched_best_model_list]
             logging.info(f"Evaluation all trained model on training and testing dataset both")
             metric_info: MetricInfoArtifact = evaluate_classification_model(model_list=model_list, X_train=x_train,

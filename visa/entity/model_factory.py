@@ -160,6 +160,9 @@ def get_sample_model_config_yaml_file(export_dir: str):
     except Exception as e:
         raise CustomException(e, sys)
 
+
+
+######### starts from here
 #making a constructor and calling the above variables
 class ModelFactory:
     def __init__(self, model_config_path: str = None, ):
@@ -173,14 +176,15 @@ class ModelFactory:
 
             self.models_initialization_config: dict = dict(self.config[MODEL_SELECTION_KEY])
 
+            #none is mentione in below because at first time we dont have any trained model
             self.initialized_model_list = None
             self.grid_searched_best_model_list = None 
 
         except Exception as e:
             raise CustomException(e, sys) from e
-
-#to update all properties of the class that we have define under model.yaml file if  
-#example- we are updating the properties through UI to train a new model . Than those properties will be updated
+#what if you want to update all the params of the claasses so for this below function
+#to update all properties/parameters of the classes that we have define under model.yaml file 
+#example- we are updating the properties/params through UI to train a new model . Than those properties will be updated
 #in the yaml file also.
     @staticmethod
     def update_property_of_class(instance_ref: object, property_data: dict):
@@ -195,7 +199,8 @@ class ModelFactory:
         except Exception as e:
             raise CustomException(e, sys) from e
         
-# Read complete parameter from modelyaml file
+# Read complete parameter from model.yaml file
+#safe_load have complete functions to read yml file 
     @staticmethod
     def read_params(config_path: str) -> dict:
         try:
@@ -212,7 +217,7 @@ class ModelFactory:
     def class_for_name(module_name: str, class_name: str):
         try:
             # load the module, will raise ImportError if module cannot be loaded
-            #importlib to call multiple objects or algorithms at a single time, to get list of algos
+            #importlib to call multiple objects or algorithms at a single time, to get list of algos at once
             module = importlib.import_module(module_name)
             # get the class, will raise AttributeError if class cannot be found
             logging.info(f"Executing command: from {module} import {class_name}")
@@ -274,18 +279,23 @@ class ModelFactory:
         first it will pick the model and then execute the params 
         """
         try:
+            #calling all the models(modules) with their keys and params in serial (one by one ) reagrding serial  to execute
+            #calling the things 1st time
             initialized_model_list = []
             for model_serial_number in self.models_initialization_config.keys():
                 #calling all the models regarding serial num
+                #take all module key and classes 
+                #it will pick the model
                 model_initialization_config = self.models_initialization_config[model_serial_number]
                 model_obj_ref = ModelFactory.class_for_name(module_name=model_initialization_config[MODULE_KEY],
                                                             class_name=model_initialization_config[CLASS_KEY]
                                                             )
                 model1 = model_obj_ref()
  
-                #after picking the serial num, executing all parameters and if any changes in params do update
+                #after picking the model with serial num, executing all parameters and if any changes in params do update
                 if PARAM_KEY in model_initialization_config:
                     model_obj_property_data = dict(model_initialization_config[PARAM_KEY])
+                    #if you did not get good accuracy and want to update the params, then calling the func for that
                     model1 = ModelFactory.update_property_of_class(instance_ref=model1,
                                                                    property_data=model_obj_property_data)
 
@@ -305,7 +315,8 @@ class ModelFactory:
         except Exception as e:
             raise CustomException(e, sys) from e
 
-#to be executed if you have only one algorithm
+#execute this  if you have only one algorithm
+#calling all  the named tuples
     def initiate_best_parameter_search_for_initialized_model(self, initialized_model: InitializedModelDetail,
                                                              input_feature,
                                                              output_feature) -> GridSearchedBestModel:
@@ -345,7 +356,7 @@ class ModelFactory:
         except Exception as e:
             raise CustomException(e, sys) from e
 
-#fetching the details of models
+#fetching the details of models that we have defined in named tuple above
     @staticmethod
     def get_model_detail(model_details: List[InitializedModelDetail],
                          model_serial_number: str) -> InitializedModelDetail:
@@ -360,7 +371,7 @@ class ModelFactory:
             raise CustomException(e, sys) from e
 
 #searching the best model from grid search cv list
-#suppose if we have 2 algos, based on base accuracy it will pick the bbest model based on accuracy
+#suppose if we have 2 algos, based on base accuracy it will pick the best model based on accuracy
     @staticmethod
     def get_best_model_from_grid_searched_best_model_list(grid_searched_best_model_list: List[GridSearchedBestModel],
                                                           base_accuracy=0.6

@@ -65,11 +65,11 @@ class DataValidation:
             logging.info("Validation Process Started")
             if self.isFolderPathAvailable() == True:
 
-                
+                 #validating all the functions on train data
                 train_filename = os.path.basename(
                     self.data_ingestion_artifact.train_file_path)
 
-                #validating file name
+                #validating train file name
                 is_train_filename_validated = self.train_data.validate_filename(
                     file_name=train_filename)
 
@@ -84,7 +84,8 @@ class DataValidation:
                 self.train_data.replace_null_values_with_null()
 
 
-                
+                #validatings all the functins on test data
+
                 test_filename = os.path.basename(
                     self.data_ingestion_artifact.test_file_path)
 
