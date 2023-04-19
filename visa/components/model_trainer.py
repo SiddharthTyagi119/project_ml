@@ -105,16 +105,17 @@ class ModelTrainer:
 
             logging.info(f"Best model found on training dataset: {best_model}")
 
-            #complete all trained algrorithms
+            #taking  all trained algrorithms
             logging.info(f"Extracting trained model list.")
             grid_searched_best_model_list: List[GridSearchedBestModel] = model_factory.grid_searched_best_model_list
 
-            #evaluating the all trained models
+            #evaluating all the trained models
             model_list = [model.best_model for model in grid_searched_best_model_list]
             logging.info(f"Evaluation all trained model on training and testing dataset both")
             metric_info: MetricInfoArtifact = evaluate_classification_model(model_list=model_list, X_train=x_train,
                                                                         y_train=y_train, X_test=x_test, y_test=y_test,
                                                                         base_accuracy=base_accuracy)
+            #found best model
             print(metric_info.model_name)
             logging.info(f"Best found model on both training and testing dataset.")
 

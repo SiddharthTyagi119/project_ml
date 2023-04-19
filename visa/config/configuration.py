@@ -157,13 +157,16 @@ class Configuartion:
     def get_model_trainer_config(self) -> ModelTrainerConfig:
         try:
             artifact_dir = self.training_pipeline_config.artifact_dir
-
+            
+            #creating artifact dir
             model_trainer_artifact_dir=os.path.join(
                 artifact_dir,
                 MODEL_TRAINER_ARTIFACT_DIR,
                 self.time_stamp
             )
+            #calling confi file to get all the variables
             model_trainer_config_info = self.config_info[MODEL_TRAINER_CONFIG_KEY]
+            #definig the things we want to store under artifact dir
             trained_model_file_path = os.path.join(model_trainer_artifact_dir,
             model_trainer_config_info[MODEL_TRAINER_TRAINED_MODEL_DIR_KEY],
             model_trainer_config_info[MODEL_TRAINER_TRAINED_MODEL_FILE_NAME_KEY]
@@ -175,6 +178,7 @@ class Configuartion:
 
             base_accuracy = model_trainer_config_info[MODEL_TRAINER_BASE_ACCURACY_KEY]
 
+            #calling final model trainer config
             model_trainer_config = ModelTrainerConfig(
                 trained_model_file_path=trained_model_file_path,
                 base_accuracy=base_accuracy,
@@ -205,10 +209,12 @@ class Configuartion:
         
     def get_model_evaluation_config(self) ->ModelEvaluationConfig:
         try:
+            #getting all the var as config key 
             model_evaluation_config = self.config_info[MODEL_EVALUATION_CONFIG_KEY]
+            #creating artifact folder
             artifact_dir = os.path.join(self.training_pipeline_config.artifact_dir,
                                         MODEL_EVALUATION_ARTIFACT_DIR, )
-
+            
             model_evaluation_file_path = os.path.join(artifact_dir,
                                                     model_evaluation_config[MODEL_EVALUATION_FILE_NAME_KEY])
             response = ModelEvaluationConfig(model_evaluation_file_path=model_evaluation_file_path,

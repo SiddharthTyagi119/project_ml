@@ -10,7 +10,7 @@ import shutil
 class ModelPusher:
 
     def __init__(self, model_pusher_config: ModelPusherConfig,
-                 model_evaluation_artifact: ModelEvaluationArtifact    #just to get best model to push
+                 model_evaluation_artifact: ModelEvaluationArtifact    #just to get best model from yaml artifact to push
                  ):
         try:
             logging.info(f"{'>>' * 30}Model Pusher log started.{'<<' * 30} ")
@@ -22,10 +22,14 @@ class ModelPusher:
     
     def export_model(self)-> ModelPusherConfig:
         try:
+            #pushing the best model under export dir
+            #taking the path of best model which is present under evaluation file
             evaluated_model_file_path = self.model_evaluation_artifact.evaluated_model_path
-#creating export dir, under this  we will push whatever the best model we have under evaluated model file 
+           
+           #creating export dir, under this  we are pushing whatever the best model we have under evaluated model file 
             export_dir = self.model_pusher_config.export_dir_path
             model_file_name = os.path.basename(evaluated_model_file_path)
+            
             #joining everything
             export_model_file_path = os.path.join(export_dir, model_file_name)
             logging.info(f"Exporting model file: [{export_model_file_path}]")
@@ -38,6 +42,7 @@ class ModelPusher:
             logging.info(
                 f"Trained model: {evaluated_model_file_path} is copied in export dir:[{export_model_file_path}]")
             
+            #artifact
             model_pusher_artifact = ModelPusherArtifact(is_model_pusher=True,
                                                         export_model_file_path=export_model_file_path
                                                         )
